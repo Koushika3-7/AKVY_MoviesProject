@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akvy
+spec:
+  selector:
+    matchLabels:
+      app: akvy
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: akvy
+    spec:
+      containers:
+      - name: akvy
+        image: koushika37/akvy
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
